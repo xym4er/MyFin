@@ -1,5 +1,8 @@
 package com.chornyiya.myfin.data.source.local;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Contract {
     public static String DB_NAME = "main.db";
     public static int DB_VERSION = 1;
@@ -24,5 +27,15 @@ public class Contract {
         public static String ID_CATEGORY_COLUMN_NAME = "_id";
         public static String NAME_CATEGORY_COLUMN_NAME = "name";
         public static String PARENT_ID_CATEGORY_COLUMN_NAME = "parent_id";
+
+    public static List<String> defaultSql = new ArrayList<>();
+    static {
+        defaultSql.add("");
+        defaultSql.add("");
+        defaultSql.add("");
+        defaultSql.add("");
+        defaultSql.add("");
+        defaultSql.add("");
+    }
 
 }

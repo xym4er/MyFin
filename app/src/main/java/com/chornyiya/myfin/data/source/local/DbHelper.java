@@ -41,6 +41,14 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(sql.toString());
         sql.setLength(0);
         sql.trimToSize();
+
+        initDb(db);
+    }
+
+    private void initDb(SQLiteDatabase db) {
+        for (int i = 0; i < Contract.defaultSql.size(); i++) {
+            db.execSQL(Contract.defaultSql.get(i));
+        }
     }
 
     @Override
