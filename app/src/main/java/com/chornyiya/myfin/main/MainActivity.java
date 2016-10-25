@@ -14,9 +14,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.chornyiya.myfin.R;
+import com.chornyiya.myfin.data.source.Repository;
+import com.chornyiya.myfin.util.ActivityUtils;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public static final String ANONYMOUS = "anonymous";
+    private static final String TAG = "MainActivity";
+    private DrawerLayout drawer;
+    private MainPresenter mainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +32,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -33,6 +40,14 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        MainFragment mainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+        if (mainFragment == null){
+            mainFragment = MainFragment.newInstance();
+            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),mainFragment,R.id.contentFrame  );
+        }
+
+      //  mainPresenter = new MainPresenter(Repository.getInstance(getApplicationContext()),mainFragment);
     }
 
     @Override
