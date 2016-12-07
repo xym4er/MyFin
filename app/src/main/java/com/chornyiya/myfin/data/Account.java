@@ -1,9 +1,5 @@
 package com.chornyiya.myfin.data;
 
-/**
- * Created by y.chornyi on 24.10.2016.
- */
-
 public class Account {
     private int id;
     private String type;

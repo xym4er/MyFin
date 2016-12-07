@@ -2,10 +2,6 @@ package com.chornyiya.myfin.main;
 
 import android.support.v4.app.Fragment;
 
-/**
- * Created by y.chornyi on 24.10.2016.
- */
-
 public class MainFragment extends Fragment implements MainContract.View {
 
     public static MainFragment newInstance() {

@@ -6,10 +6,6 @@ import com.chornyiya.myfin.data.Account;
 import com.chornyiya.myfin.data.Operation;
 import com.chornyiya.myfin.data.source.DataSource;
 
-/**
- * Created by y.chornyi on 21.10.2016.
- */
-
 public class RemoteDataSource implements DataSource {
     private static RemoteDataSource INSTANCE;
     public static RemoteDataSource getInstance() {
